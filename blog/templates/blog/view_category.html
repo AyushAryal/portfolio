@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="height:200px;"></div>
+<main>
+    <div class="container position-relative profile-container">
+        <div class="container profile-details">
+            <h1 class="profile-name text-white text-center font-weight-bold">
+                {{category.tag}}
+            </h1>
+            <div class="profile-description text-center text-white align-center">
+                {{category.description}}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

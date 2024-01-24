@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %} {% load static %} {% block content %}
+
+
+<div class="container" style="height:200px;"></div>
+<main>
+    <div class="container position-relative profile-container">
+
+        {% if author.profile_picture %}
+        <img src="{{author.profile_picture.url}}" class="profile-picture"> {% else %}
+        <img src="{% static "default_profile_picture.jpg" %}" class="profile-picture"> {% endif %}
+        <div class="container profile-details">
+            <h1 class="profile-name text-white text-center font-weight-bold">{{author.name}}</h1>
+            <div class="profile-email text-center text-white">{{author.email}}</div>
+            <div class="profile-description text-center text-white align-center">{{author.description}}</div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

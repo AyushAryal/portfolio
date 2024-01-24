@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load responsive_image %}
+
+{% block content %}
+<div class="container-fluid blog-post pt-5" style="max-width: 80ch">
+    <article class="container-fluid blog-post ">
+        <header>
+            <h1 class="font-weight-bold ">{{ article.title }}</h1>
+            <div class="author font-weight-bold d-flex flex-row flex-wrap align-items-center mb-2" style="gap: 1rem">
+                {% for author in article.authors.all %}
+                    <a class="author" href="{% url 'blog:author_details' author.id %}">
+                        <img style="width: 50px; height: 50px" class="rounded-circle" src={{ author.profile_picture.url }} />
+                    </a>
+                    <a class="author" href="{% url 'blog:author_details' author.id %}">{{author}}</a>
+                    • 
+                {% endfor %}
+                {{ article.pub_date }}
+            </div>
+            <div class="article-tag-container">
+            {% for tag in article.tags.all %}
+                <a class="text-decoration-none" href="{% url 'blog:view_category' tag.id %}">
+                    <div class="badge fw-normal rounded-pill article-tag" style="color:{{tag.color}}; ">
+                        {{ tag }}
+                    </div>
+                </a>
+            {% endfor %}
+            </div>
+        </header>
+        <section>
+            <p class="text-justify m-0 pb-5 pt-5 ">
+                {{ article.content | responsive_image | safe }}
+            </p>
+        </section>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="blog_list">
+{% with forloop.counter|stringformat:"i" as counter_str%}
+    {%for article in article_list%} 
+        {{forloop.counter}}.&nbsp
+        <a class="blog" href="{% url 'blog:view_article' article.id %}">{{article.title}}</a>
+        <br>
+    {%endfor%}
+{%endwith%}
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Author" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="Personal blog site." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no" />
+
+    <title> </title>
+    <link rel=" icon " href=" /favicon.ico " type=" image/x-icon " />
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link rel=" stylesheet " href="{% static 'blog/styles.css'%}" type=" text/css " />
+    <link rel=" stylesheet " href=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css " integrity=" sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh " crossorigin=" anonymous " />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity=" sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin=" anonymous "></script>
+    <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity=" sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin=" anonymous "></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="/static/base/js/main.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body onload="ready()" class=" body " style="background-image: url('{% static "blog/images/background.jpg" %}');">
+    <div id="preloader">
+
+    </div>
+
+    {% block content %} {% endblock %}
+    <footer class="container-fluid foot">
+        <div class="foot text-center">
+            <div class="foot-icons">
+                <a class="foot" href="https://www.facebook.com/ayush.aryal.502">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a class="foot" href="https://www.instagram.com/ayush.aryal/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="foot" href="https://github.com/AyushAryal/">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <br> © Copyright 2020<br> All rights reserved.
+        </div>
+    </footer>
+    <script>
+        var eleme = document.getElementById("preloader");
+
+        function ready() {
+            eleme.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
