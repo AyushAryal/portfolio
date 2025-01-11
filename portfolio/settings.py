@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost","aryalayush.com.np", "www.aryalayush.com.np"]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.aryalayush.com.np',
+    'https://aryalayush.com.np',
+]
+
 
 # Application definition
 
