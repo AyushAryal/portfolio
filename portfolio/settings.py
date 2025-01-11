@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-q$su4(j-*2vwv4pv!gy@b1w=cg-=&_$)fui0cizjbk)@+he@$3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["172.190.206.139"]
+ALLOWED_HOSTS = ["localhost","aryalayush.com.np"]
 
 
 # Application definition
@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     "ckeditor",
     "ckeditor_uploader",
     "blog",
+    "cms",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "portfolio.urls"
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 TEMPLATES = [
     {

@@ -6,10 +6,15 @@ import base64
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from . import models
+from cms import models as cmsmodel
 
 GITHUB_USERNAME = "AyushAryal"
 
 REQUESTS_CACHE = {}
+
+def skills_view(request):
+    skills = cmsmodel.Skill.objects.all()
+    return render(request, 'blog/home.html', {'skills': skills})
 
 
 def set_base_path(soup, base_path):
@@ -62,6 +67,8 @@ def home(request):
     rendered_readme = render_markdown(
         REQUESTS_CACHE[github_profile_readme]["content"], base_url
     )
+    skills = cmsmodel.Skill.objects.all()
+    cv = cmsmodel.Cv.objects.first()
 
     return render(
         request,
@@ -70,6 +77,8 @@ def home(request):
             "article_list": models.Article.objects.all(),
             "repository_list": REQUESTS_CACHE[url],
             "github_profile_readme": rendered_readme,
+            "skills": skills,
+            "cv": cv,
         },
     )
 
@@ -119,3 +128,5 @@ def blog(request):
     return render(
         request, "blog/blog.html", {"article_list": models.Article.objects.all()}
     )
+
+

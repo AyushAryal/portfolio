@@ -29,29 +29,23 @@
                 [<span style="color:lime">root@host</span> ~/] $> cd ~/skills <br>
                 <div class="d-md-inline d-none">
                     [<span style="color:lime">root@host</span> ~/] $> ls -lAh <br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: yellow">python</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: purple">html_css_js</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: lightblue">react_vue</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: red">django</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: green">machine_learning</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: cyan">flutter</span><br>
-                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: lime">linux</span><br>
+                    <br>
+                    {%for skill in skills%} 
+                        rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: {{ skill.color }}">{{ skill.name }}</span><br>
+                    {%endfor%}
                     <br>
                 </div>
 
                 <div class="d-md-none">
                 [<span style="color:lime">root@host</span> ~/] $> ls -A <br>
-                <span style="color: yellow">python</span><br>
-                <span style="color: purple">html_css_js</span><br>
-                <span style="color: lightblue">react_vue</span><br>
-                <span style="color: red">django</span><br>
-                <span style="color: green">machine_learning</span><br>
-                <span style="color: cyan">flutter</span><br>
-                <span style="color: lime">linux</span><br>
+                    {%for skill in skills%} 
+                    rwxr-xr-x root root 4.0K Jan 24 19:31 <span style="color: {{ skill.color }}">{{ skill.name }}</span><br>
+                        <br>
+                    {%endfor%}
                 <br>
                 </div>
                 <div class="d-md-inline d-none">
-                [<span style="color:lime">root@host</span> ~/] $> curl <a href="https://github.com/ayusharyal"> https://aryalayush.com.np/cv.pdf </a> <br>
+                [<span style="color:lime">root@host</span> ~/] $> curl <a href="{{cv.pdf.url}}" download target="_blank">https://aryalayush.com.np/cv.pdf </a> <br>
                 <pre>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -101,7 +95,7 @@
                         {% if article.thumbnail %}
                             <img class="article-thumbnail-image" src="{{ article.thumbnail.url }}" />
                         {% else %}
-                            <img class="article-thumbnail-image" src="{{ settings.default_article_thumbnail.url }}" />
+                            <img class="article-thumbnail-image" src="static/blog/images/default_article_thumbnail.jpg" />
                         {% endif %}
 
                         <div class="position-absolute text-light display-2 top-0 article-title">
@@ -137,6 +131,10 @@
         <div class="container py-5">
             {{ github_profile_readme|safe }}
         </div>
+        <div class="py-3 text-center">
+            &copy; Ayush Aryal {% now "Y" %}
+        </div>
     </section>
+        
 </main>
 {% endblock %}
